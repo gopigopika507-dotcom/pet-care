@@ -1,0 +1,2838 @@
+/* =====================================================
+   GLOBAL RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    color: #172033;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    background: white;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #16833c;
+}
+
+.logo span {
+    color: #172033;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #172033;
+}
+
+nav a:hover {
+    color: #16833c;
+}
+
+.login-btn {
+    text-decoration: none;
+    color: #16833c;
+    margin-right: 20px;
+}
+
+.start-btn {
+    text-decoration: none;
+    background: #16833c;
+    color: white;
+    padding: 13px 22px;
+    border-radius: 8px;
+}
+
+.start-btn:hover {
+    background: #126b31;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 70px 8%;
+    background: #f8fbf7;
+}
+
+.hero-text {
+    width: 50%;
+}
+
+.tag {
+    display: inline-block;
+    background: #e5f4e8;
+    color: #16833c;
+    padding: 10px 16px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 52px;
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+h1 span {
+    color: #16833c;
+}
+
+.hero-text p {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 600px;
+    color: #555;
+}
+
+
+/* =====================================================
+   COMMON BUTTONS
+===================================================== */
+
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 14px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.primary-btn {
+    border: none;
+    background: #16833c;
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #126b31;
+}
+
+.secondary-btn {
+    background: white;
+    color: #16833c;
+    border: 1px solid #16833c;
+}
+
+.secondary-btn:hover {
+    background: #eef8f0;
+}
+
+
+/* =====================================================
+   HERO CARD
+===================================================== */
+
+.hero-card {
+    width: 360px;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.pet-circle {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    border-radius: 50%;
+    background: #e9f6eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 80px;
+}
+
+.hero-card h2 {
+    margin-top: 20px;
+}
+
+.hero-card p {
+    margin: 10px;
+    color: #666;
+}
+
+.mini-card {
+    padding: 15px;
+    margin-top: 12px;
+    background: #f4f8f4;
+    border-radius: 10px;
+}
+
+
+/* =====================================================
+   FEATURES
+===================================================== */
+
+.features {
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+.feature-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.feature-card {
+    width: 240px;
+    padding: 25px;
+    border: 1px solid #eeeeee;
+    border-radius: 15px;
+    text-align: left;
+    background: white;
+}
+
+.feature-card h3 {
+    margin: 15px 0 10px;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   AUTH - LOGIN / SIGNUP
+===================================================== */
+
+.auth-container {
+    min-height: 100vh;
+    background: #f6faf7;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.auth-logo {
+    text-align: center;
+    font-size: 55px;
+}
+
+.auth-card h1 {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 30px;
+}
+
+.auth-card > p {
+    text-align: center;
+    color: #777;
+}
+
+.auth-card form {
+    margin-top: 25px;
+}
+
+.auth-card label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.auth-card input {
+    width: 100%;
+    padding: 13px;
+
+    border: 1px solid #d9dfda;
+    border-radius: 9px;
+
+    font-size: 15px;
+    outline: none;
+}
+
+.auth-card input:focus {
+    border-color: #238b45;
+}
+
+.full-btn {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.or {
+    text-align: center;
+    margin: 20px 0;
+    color: #999;
+}
+
+.bottom-text {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.bottom-text a {
+    color: #238b45;
+    font-weight: bold;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #238b45;
+    text-decoration: none;
+}
+
+.error-message {
+    background: #ffe9e9;
+    color: #b42318;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+.dashboard {
+    padding: 50px 8%;
+    background: #f8fbf7;
+    min-height: calc(100vh - 85px);
+}
+
+.dashboard h1 {
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+.dashboard > p {
+    color: #666;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-card h2 {
+    margin-bottom: 15px;
+}
+
+.dashboard-card p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.big-number {
+    font-size: 45px;
+    display: block;
+    margin: 15px 0 0;
+}
+
+
+/* =====================================================
+   PET PROFILE FORM
+===================================================== */
+
+.form-page {
+    min-height: calc(100vh - 85px);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 50px 20px;
+
+    background: #f8fbf7;
+}
+
+.form-card {
+    width: 100%;
+    max-width: 800px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.form-card h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.form-card .subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.pet-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #d9dfda;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #238b45;
+
+    box-shadow: 0 0 0 3px rgba(35, 139, 69, 0.08);
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.save-pet-btn {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    background: #16833c;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.save-pet-btn:hover {
+    background: #126b31;
+}
+
+
+/* =====================================================
+   GENERAL PAGE CONTAINER
+===================================================== */
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 40px auto;
+
+    padding: 35px 50px;
+}
+
+
+/* =====================================================
+   PRESCRIPTION UPLOAD PAGE
+===================================================== */
+
+.upload-container {
+    min-height: calc(100vh - 85px);
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 45px 20px;
+
+    background: #f8fbf7;
+}
+
+.upload-card {
+    width: 100%;
+
+    max-width: 850px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.upload-card h1 {
+    text-align: center;
+
+    font-size: 36px;
+
+    margin-bottom: 12px;
+
+    color: #172033;
+}
+
+.upload-card > p {
+    text-align: center;
+
+    color: #666;
+
+    margin-bottom: 30px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   HOME BUTTON
+===================================================== */
+
+.home-link,
+.back-link,
+.streak-back,
+.progress-back,
+.diet-header .back {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #238b45;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    padding: 10px 0;
+
+    margin-bottom: 25px;
+
+    transition: 0.2s ease;
+}
+
+.home-link:hover,
+.back-link:hover,
+.streak-back:hover,
+.progress-back:hover,
+.diet-header .back:hover {
+    color: #176b34;
+
+    transform: translateX(3px);
+}
+
+.page-home {
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding-bottom: 10px;
+}
+
+
+/* =====================================================
+   PET INFORMATION
+===================================================== */
+
+.pet-info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px 40px;
+
+    padding: 20px;
+
+    margin-bottom: 25px;
+
+    background: #f8fbf7;
+
+    border-radius: 15px;
+}
+
+.pet-info p {
+    margin: 0;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+.pet-info strong {
+    color: #172033;
+}
+
+
+/* =====================================================
+   UPLOAD SECTION
+===================================================== */
+
+.upload-section {
+    margin-bottom: 40px;
+
+    padding: 30px;
+}
+
+.upload-section h2 {
+    margin-bottom: 15px;
+}
+
+.upload-section input[type="file"] {
+    display: block;
+
+    width: 100%;
+
+    margin: 20px 0;
+
+    padding: 12px;
+
+    border: 1px solid #d9dfda;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+}
+
+.upload-section input[type="file"]:focus {
+    border-color: #238b45;
+}
+
+.upload-section button {
+    margin-top: 10px;
+
+    margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   UPLOAD BOX
+===================================================== */
+
+.upload-box {
+    width: 100%;
+
+    min-height: 330px;
+
+    border: 2px dashed #b8d8bd;
+
+    border-radius: 18px;
+
+    background: #fbfefb;
+
+    margin-top: 20px;
+
+    padding: 40px 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+.upload-box:hover {
+    background: #f6fbf6;
+
+    border-color: #16833c;
+}
+
+.upload-icon {
+    font-size: 55px;
+
+    margin-bottom: 10px;
+}
+
+.upload-box h3 {
+    font-size: 24px;
+
+    color: #172033;
+
+    margin: 10px 0;
+}
+
+.upload-box p {
+    color: #777;
+
+    margin: 5px 0;
+
+    line-height: 1.5;
+}
+
+.file-types {
+    color: #999 !important;
+
+    font-size: 14px;
+
+    margin-top: 5px !important;
+}
+
+.upload-box input[type="file"] {
+    width: auto;
+
+    max-width: 100%;
+
+    margin-top: 20px;
+
+    padding: 10px;
+
+    border: none;
+
+    background: transparent;
+}
+
+
+/* =====================================================
+   CHOOSE BUTTON
+===================================================== */
+
+.choose-btn {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 13px 25px;
+
+    background: #16833c;
+
+    color: white;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.choose-btn:hover {
+    background: #126b31;
+}
+
+.choose-btn input {
+    display: none;
+}
+
+
+/* =====================================================
+   NOTE / WARNING
+===================================================== */
+
+.note {
+    color: #777;
+
+    text-align: center;
+
+    line-height: 1.5;
+
+    margin-top: 20px;
+
+    font-size: 13px;
+}
+
+.warning {
+    background: #fff5d8;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    margin-top: 20px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    color: #725500;
+}
+
+
+/* =====================================================
+   TIPS SECTION
+===================================================== */
+
+.tips-section {
+    margin-top: 40px;
+
+    margin-bottom: 45px;
+
+    padding: 10px 0;
+}
+
+.tips-section h2 {
+    margin-bottom: 15px;
+}
+
+.tips-section ul {
+    margin-top: 10px;
+
+    padding-left: 30px;
+}
+
+.tips-section li {
+    margin-bottom: 8px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   PREVIOUS PRESCRIPTIONS
+===================================================== */
+
+.previous-prescriptions {
+    margin-top: 45px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+.previous-prescriptions > h2 {
+    margin-bottom: 25px;
+
+    color: #172033;
+}
+
+.previous-prescriptions > p {
+    margin-top: 10px;
+}
+
+
+/* =====================================================
+   PRESCRIPTION CARD
+===================================================== */
+
+.prescription-card {
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    margin-bottom: 30px;
+
+    border: 1px solid #eeeeee;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.prescription-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.09);
+}
+
+
+/* =====================================================
+   PRESCRIPTION HEADER
+===================================================== */
+
+.prescription-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.prescription-header h3 {
+    margin: 0;
+
+    color: #172033;
+
+    word-break: break-word;
+}
+
+.prescription-header span {
+    color: #777;
+
+    font-size: 14px;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   PRESCRIPTION IMAGE
+===================================================== */
+
+.prescription-image {
+    display: block;
+
+    width: 100%;
+
+    max-width: 500px;
+
+    max-height: 600px;
+
+    object-fit: contain;
+
+    margin: 20px auto;
+
+    border-radius: 12px;
+
+    border: 1px solid #ddd;
+
+    background: #fafafa;
+}
+
+
+/* =====================================================
+   OCR RESULT
+===================================================== */
+
+.prescription-result {
+    margin-top: 30px;
+
+    padding: 20px;
+
+    background: #f5f8f5;
+
+    border-radius: 12px;
+
+    border-left: 4px solid #238b45;
+}
+
+.prescription-result h3 {
+    margin-bottom: 15px;
+
+    color: #172033;
+}
+
+.prescription-result pre {
+    white-space: pre-wrap;
+
+    word-wrap: break-word;
+
+    overflow-wrap: break-word;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    color: #555;
+}
+
+
+/* =====================================================
+   DETECTED CONDITION
+===================================================== */
+
+.disease-result {
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background: #eef8f0;
+
+    border-left: 5px solid #238b45;
+
+    border-radius: 10px;
+}
+
+.disease-result h3 {
+    margin-bottom: 8px;
+
+    color: #172033;
+}
+
+.disease-result p {
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #238b45;
+}
+
+
+/* =====================================================
+   FOOD SUGGESTIONS
+===================================================== */
+
+.food-result {
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background: #fffaf0;
+
+    border-radius: 12px;
+
+    border-left: 5px solid #f0b429;
+}
+
+.food-result h3 {
+    margin-bottom: 15px;
+
+    color: #172033;
+}
+
+.food-result pre {
+    white-space: pre-wrap;
+
+    word-wrap: break-word;
+
+    overflow-wrap: break-word;
+
+    line-height: 1.8;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    color: #555;
+}
+
+
+/* =====================================================
+   EMPTY PRESCRIPTIONS
+===================================================== */
+
+.empty-prescriptions {
+    padding: 35px;
+
+    text-align: center;
+
+    color: #777;
+
+    background: #f8f8f8;
+
+    border-radius: 15px;
+
+    border: 1px dashed #dddddd;
+}
+
+.empty-prescriptions p {
+    margin: 0;
+}
+
+
+/* =====================================================
+   DELETE PRESCRIPTION
+===================================================== */
+
+.delete-prescription {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 9px 16px;
+
+    color: #c62828;
+
+    text-decoration: none;
+
+    border: 1px solid #c62828;
+
+    border-radius: 8px;
+
+    transition: 0.2s ease;
+}
+
+.delete-prescription:hover {
+    background: #c62828;
+
+    color: white;
+}
+
+
+/* =====================================================
+   REVIEW PAGE
+===================================================== */
+
+.review-container {
+    min-height: calc(100vh - 85px);
+
+    background: #f8fbf7;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding: 40px 20px;
+}
+
+.review-card {
+    width: 100%;
+
+    max-width: 700px;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.review-card h1 {
+    text-align: center;
+
+    font-size: 30px;
+
+    margin-bottom: 25px;
+}
+
+.success {
+    background: #e7f7ea;
+
+    color: #16833c;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+}
+
+.information {
+    background: #f7f7f7;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    margin-top: 15px;
+}
+
+.information h3 {
+    margin-top: 18px;
+
+    margin-bottom: 7px;
+}
+
+.information h3:first-child {
+    margin-top: 0;
+}
+
+.extracted-text,
+.prescription-text {
+    background: #f5f5f5;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    white-space: pre-wrap;
+
+    line-height: 1.6;
+
+    min-height: 120px;
+
+    color: #555;
+}
+
+.review-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.review-buttons a,
+.review-buttons button {
+    flex: 1;
+}
+
+
+/* =====================================================
+   GENERIC CARD
+===================================================== */
+
+.page {
+    min-height: 100vh;
+
+    background: #f5faf5;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+}
+
+.card {
+    background: white;
+
+    width: 100%;
+
+    max-width: 600px;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card h1 {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   DIET PLAN
+===================================================== */
+
+.diet-container {
+    width: 90%;
+
+    max-width: 1000px;
+
+    margin: 40px auto;
+
+    min-height: 90vh;
+}
+
+.diet-header {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.diet-header .back {
+    display: block;
+
+    text-align: left;
+
+    color: #238b45;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    margin-bottom: 25px;
+}
+
+.pet-icon {
+    font-size: 45px;
+}
+
+.diet-header h1 {
+    margin: 10px 0 5px;
+
+    color: #222;
+
+    font-size: 32px;
+}
+
+.diet-header p {
+    color: #777;
+}
+
+
+/* =====================================================
+   PET SUMMARY
+===================================================== */
+
+.pet-summary {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.pet-summary div {
+    text-align: center;
+}
+
+.pet-summary strong {
+    display: block;
+
+    margin-bottom: 8px;
+}
+
+.pet-summary span {
+    color: #666;
+}
+
+
+/* =====================================================
+   PRESCRIPTION NOTE
+===================================================== */
+
+.prescription-note {
+    background: #eef8f0;
+
+    border-left: 5px solid #238b45;
+
+    padding: 18px;
+
+    border-radius: 10px;
+
+    margin-bottom: 30px;
+}
+
+.prescription-note p {
+    color: #555;
+
+    margin-bottom: 0;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   DIET SECTION
+===================================================== */
+
+.section-title {
+    margin-bottom: 15px;
+
+    color: #222;
+}
+
+.meal-container {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.meal-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.meal-icon {
+    font-size: 35px;
+}
+
+.meal-info {
+    flex: 1;
+}
+
+.meal-time {
+    color: #238b45;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+.meal-info h3 {
+    margin: 5px 0;
+}
+
+.meal-info h4 {
+    margin: 5px 0;
+}
+
+.meal-info p {
+    margin: 5px 0;
+
+    color: #666;
+
+    line-height: 1.5;
+}
+
+.meal-status {
+    font-size: 25px;
+
+    color: #238b45;
+}
+
+
+/* =====================================================
+   DIET BUTTONS
+===================================================== */
+
+.diet-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.diet-buttons a {
+    flex: 1;
+
+    text-decoration: none;
+}
+
+.diet-buttons button {
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 9px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.diet-buttons .primary-btn {
+    background: #238b45;
+
+    color: white;
+
+    border: none;
+}
+
+.diet-buttons .secondary-btn {
+    background: white;
+
+    color: #238b45;
+
+    border: 1px solid #238b45;
+}
+
+
+/* =====================================================
+   STREAK PAGE
+===================================================== */
+
+.streak-page {
+    width: 90%;
+
+    max-width: 800px;
+
+    margin: 40px auto;
+
+    text-align: center;
+}
+
+.streak-back {
+    display: block;
+
+    text-align: left;
+
+    color: #238b45;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    margin-bottom: 30px;
+}
+
+.streak-header {
+    margin-bottom: 25px;
+}
+
+.big-fire {
+    font-size: 65px;
+}
+
+.streak-header h1 {
+    margin: 8px 0;
+}
+
+.streak-header p {
+    color: #777;
+}
+
+.streak-main-card {
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.fire {
+    font-size: 65px;
+}
+
+.streak-number {
+    font-size: 70px;
+
+    font-weight: bold;
+
+    color: #f57c00;
+}
+
+.day-text {
+    font-size: 18px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+.streak-main-card p {
+    color: #777;
+}
+
+
+/* =====================================================
+   STREAK STATISTICS
+===================================================== */
+
+.streak-stats {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.stat-card {
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.stat-icon {
+    font-size: 30px;
+}
+
+.stat-card h3 {
+    font-size: 14px;
+
+    color: #666;
+}
+
+.stat-card strong {
+    font-size: 20px;
+
+    color: #238b45;
+}
+
+
+/* =====================================================
+   STREAK INFORMATION
+===================================================== */
+
+.streak-info {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    margin-top: 20px;
+
+    text-align: left;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.streak-info h2 {
+    margin-top: 0;
+}
+
+.streak-info p {
+    color: #666;
+
+    line-height: 1.5;
+}
+
+.log-button {
+    display: block;
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    background: #238b45;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    text-align: center;
+}
+
+.log-button:hover {
+    background: #19753a;
+}
+
+
+/* =====================================================
+   PROGRESS PAGE
+===================================================== */
+
+.progress-page {
+    width: 90%;
+
+    max-width: 850px;
+
+    margin: 40px auto;
+}
+
+.progress-back {
+    color: #238b45;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.progress-header {
+    text-align: center;
+
+    margin: 25px 0;
+}
+
+.progress-icon {
+    font-size: 55px;
+}
+
+.progress-header h1 {
+    margin: 8px 0;
+}
+
+.progress-header p {
+    color: #777;
+}
+
+
+/* =====================================================
+   PROGRESS STATISTICS
+===================================================== */
+
+.progress-stats {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.progress-card {
+    background: white;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border-radius: 18px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+}
+
+.progress-card-icon {
+    font-size: 35px;
+}
+
+.progress-card h3 {
+    font-size: 14px;
+
+    color: #666;
+}
+
+.progress-card strong {
+    display: block;
+
+    font-size: 35px;
+
+    color: #238b45;
+}
+
+.progress-card span {
+    color: #777;
+}
+
+
+/* =====================================================
+   HISTORY
+===================================================== */
+
+.history-section {
+    background: white;
+
+    padding: 25px;
+
+    margin-top: 25px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+}
+
+.history-section h2 {
+    margin-top: 0;
+}
+
+.history-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 15px;
+
+    margin-top: 15px;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 12px;
+}
+
+.history-photo {
+    width: 70px;
+
+    height: 70px;
+
+    border-radius: 12px;
+
+    background: #eef8f0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    font-size: 30px;
+
+    flex-shrink: 0;
+}
+
+.history-photo img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.history-details {
+    flex: 1;
+}
+
+.history-details h3 {
+    margin: 0 0 5px;
+}
+
+.history-details p {
+    color: #777;
+
+    margin: 5px 0;
+}
+
+.completed {
+    color: #238b45;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   EMPTY HISTORY
+===================================================== */
+
+.empty-history {
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+.empty-history > div {
+    font-size: 50px;
+}
+
+.empty-history p {
+    color: #777;
+}
+
+
+/* =====================================================
+   PROGRESS BUTTONS
+===================================================== */
+
+.progress-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.progress-buttons a {
+    flex: 1;
+}
+
+.progress-buttons button {
+    width: 100%;
+}
+
+
+/* =====================================================
+   MOBILE RESPONSIVE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        padding: 50px 20px;
+
+        gap: 40px;
+    }
+
+    .hero-text {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    .hero-card {
+        width: 100%;
+
+        max-width: 400px;
+    }
+
+    .feature-container {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .feature-card {
+        width: 100%;
+
+        max-width: 400px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pet-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pet-info {
+        grid-template-columns: 1fr;
+    }
+
+    .pet-summary {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .streak-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .progress-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .prescription-header {
+        align-items: flex-start;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    header {
+        height: auto;
+
+        min-height: 70px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .login-btn {
+        margin-right: 8px;
+    }
+
+    .start-btn {
+        padding: 10px 15px;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        padding: 40px 15px;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+
+    /* Forms */
+
+    .form-page {
+        padding: 25px 12px;
+    }
+
+    .form-card {
+        padding: 25px 18px;
+    }
+
+    .form-card h1 {
+        font-size: 30px;
+    }
+
+
+    /* Upload */
+
+    .upload-container {
+        padding: 25px 12px;
+    }
+
+    .upload-card {
+        padding: 25px 18px;
+    }
+
+    .upload-card h1 {
+        font-size: 28px;
+    }
+
+    .upload-section {
+        padding: 20px 5px;
+    }
+
+    .upload-box {
+        min-height: 280px;
+
+        padding: 25px 15px;
+    }
+
+    .upload-box h3 {
+        font-size: 21px;
+    }
+
+    .upload-icon {
+        font-size: 45px;
+    }
+
+
+    /* Pet info */
+
+    .pet-info {
+        grid-template-columns: 1fr;
+
+        padding: 15px;
+    }
+
+
+    /* Prescription */
+
+    .previous-prescriptions {
+        margin-top: 35px;
+    }
+
+    .prescription-card {
+        padding: 15px;
+    }
+
+    .prescription-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 8px;
+    }
+
+    .prescription-header span {
+        white-space: normal;
+    }
+
+    .prescription-image {
+        max-width: 100%;
+
+        max-height: 500px;
+    }
+
+    .prescription-result,
+    .disease-result,
+    .food-result {
+        padding: 15px;
+    }
+
+    .prescription-result pre,
+    .food-result pre {
+        font-size: 14px;
+    }
+
+
+    /* Review */
+
+    .review-card,
+    .card {
+        padding: 25px 18px;
+    }
+
+    .review-buttons,
+    .diet-buttons,
+    .progress-buttons {
+        flex-direction: column;
+    }
+
+
+    /* Diet */
+
+    .diet-container {
+        width: 94%;
+
+        padding: 20px 0;
+    }
+
+    .pet-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .meal-card {
+        padding: 15px;
+    }
+
+
+    /* History */
+
+    .history-card {
+        padding: 12px;
+    }
+
+
+    /* Streak */
+
+    .streak-number {
+        font-size: 55px;
+    }
+
+
+    /* Home links */
+
+    .home-link,
+    .back-link,
+    .streak-back,
+    .progress-back,
+    .diet-header .back {
+        font-size: 16px;
+    }
+}
+.disease-result {
+    margin-top: 25px;
+    padding: 20px;
+    background: #eef8f0;
+    border-left: 5px solid #2e8b57;
+    border-radius: 12px;
+}
+
+.disease-result h2 {
+    margin: 0 0 12px 0;
+    color: #333;
+}
+
+.disease-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #238b45;
+}
+
+/* =========================================================
+   MEAL NOTIFICATION SYSTEM
+   Breakfast • Lunch • Dinner
+========================================================= */
+
+
+/* =========================================================
+   NOTIFICATION SETTINGS CARD
+========================================================= */
+
+.notification-section {
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.notification-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 28px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+    border: 1px solid #e8eee9;
+}
+
+.notification-card h2 {
+    margin: 0 0 8px;
+
+    color: #245c3a;
+
+    font-size: 24px;
+}
+
+.notification-card p {
+    color: #777;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   MEAL NOTIFICATION ROWS
+========================================================= */
+
+.meal-notification-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px;
+
+    margin-bottom: 15px;
+
+    background: #f7faf7;
+
+    border-radius: 14px;
+
+    border: 1px solid #e4ebe5;
+
+    transition: 0.2s ease;
+}
+
+.meal-notification-row:hover {
+    background: #f0f7f1;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MEAL INFORMATION
+========================================================= */
+
+.meal-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.meal-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    font-size: 25px;
+
+    background: #e7f4e9;
+}
+
+.meal-info h3 {
+    margin: 0 0 5px;
+
+    color: #2f5139;
+
+    font-size: 18px;
+}
+
+.meal-info span {
+    color: #888;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   TIME INPUT
+========================================================= */
+
+.meal-time-input {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.meal-time-input label {
+    color: #555;
+
+    font-size: 14px;
+}
+
+.meal-time-input input[type="time"] {
+    padding: 10px 12px;
+
+    border: 1px solid #ccd8ce;
+
+    border-radius: 9px;
+
+    background: white;
+
+    color: #333;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.meal-time-input input[type="time"]:focus {
+    border-color: #3b8d58;
+
+    box-shadow: 0 0 0 3px rgba(59, 141, 88, 0.12);
+}
+
+
+/* =========================================================
+   TOGGLE SWITCH
+========================================================= */
+
+.notification-toggle {
+    position: relative;
+
+    width: 50px;
+    height: 27px;
+
+    flex-shrink: 0;
+}
+
+.notification-toggle input {
+    opacity: 0;
+
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+
+    cursor: pointer;
+
+    inset: 0;
+
+    background: #cfd7d0;
+
+    border-radius: 30px;
+
+    transition: 0.3s;
+}
+
+.toggle-slider::before {
+    content: "";
+
+    position: absolute;
+
+    width: 21px;
+    height: 21px;
+
+    left: 3px;
+    top: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: 0.3s;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.notification-toggle input:checked + .toggle-slider {
+    background: #3c9259;
+}
+
+.notification-toggle input:checked + .toggle-slider::before {
+    transform: translateX(23px);
+}
+
+
+/* =========================================================
+   SAVE BUTTON
+========================================================= */
+
+.save-notification-btn {
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 13px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #31834d;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.save-notification-btn:hover {
+    background: #276b3f;
+
+    transform: translateY(-1px);
+}
+
+.save-notification-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   NOTIFICATION POPUP
+========================================================= */
+
+.meal-notification-popup {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 360px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 22px;
+
+    z-index: 9999;
+
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.18);
+
+    border-left: 6px solid #3c9259;
+
+    animation: notificationSlideIn 0.4s ease;
+}
+
+
+/* =========================================================
+   POPUP HEADER
+========================================================= */
+
+.meal-notification-popup-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+}
+
+.meal-notification-popup-header h3 {
+    margin: 0;
+
+    color: #245c3a;
+
+    font-size: 19px;
+}
+
+.close-notification {
+    border: none;
+
+    background: transparent;
+
+    color: #888;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+.close-notification:hover {
+    color: #333;
+}
+
+
+/* =========================================================
+   POPUP BODY
+========================================================= */
+
+.meal-notification-popup p {
+    margin: 8px 0;
+
+    color: #555;
+
+    line-height: 1.5;
+}
+
+.notification-food {
+    margin-top: 15px;
+
+    padding: 12px;
+
+    background: #f1f8f2;
+
+    border-radius: 10px;
+
+    color: #285d39;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   VIEW MEAL PLAN BUTTON
+========================================================= */
+
+.notification-action {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 10px 17px;
+
+    border-radius: 9px;
+
+    background: #31834d;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.notification-action:hover {
+    background: #276b3f;
+
+    color: white;
+}
+
+
+/* =========================================================
+   MEAL-SPECIFIC COLORS
+========================================================= */
+
+.breakfast-notification {
+    border-left-color: #f2a900;
+}
+
+.breakfast-notification .meal-icon {
+    background: #fff4d6;
+}
+
+.lunch-notification {
+    border-left-color: #4a9b68;
+}
+
+.lunch-notification .meal-icon {
+    background: #e5f5e9;
+}
+
+.dinner-notification {
+    border-left-color: #5865a8;
+}
+
+.dinner-notification .meal-icon {
+    background: #e9ebfa;
+}
+
+
+/* =========================================================
+   NOTIFICATION BADGE
+========================================================= */
+
+.notification-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 25px;
+    height: 25px;
+
+    padding: 0 7px;
+
+    border-radius: 20px;
+
+    background: #e53935;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   NOTIFICATION STATUS
+========================================================= */
+
+.notification-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 13px;
+
+    color: #4c805a;
+}
+
+.notification-status::before {
+    content: "";
+
+    width: 8px;
+    height: 8px;
+
+    background: #43a35c;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes notificationSlideIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+}
+
+
+/* =========================================================
+   FADE OUT
+========================================================= */
+
+.notification-hide {
+    animation: notificationSlideOut 0.3s ease forwards;
+}
+
+@keyframes notificationSlideOut {
+
+    from {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+
+    to {
+        opacity: 0;
+
+        transform:
+            translateX(100px);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .notification-section {
+        padding: 0 15px;
+    }
+
+    .notification-card {
+        padding: 20px;
+    }
+
+    .meal-notification-row {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 15px;
+    }
+
+    .meal-info {
+        justify-content: flex-start;
+    }
+
+    .meal-time-input {
+        justify-content: space-between;
+    }
+
+    .notification-toggle {
+        align-self: flex-end;
+    }
+
+    .meal-notification-popup {
+        left: 15px;
+        right: 15px;
+
+        bottom: 15px;
+
+        width: auto;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .notification-card h2 {
+        font-size: 20px;
+    }
+
+    .meal-info h3 {
+        font-size: 16px;
+    }
+
+    .meal-time-input {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .meal-time-input input[type="time"] {
+        width: 100%;
+    }
+
+}
+nav  a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    text-decoration: none;
+}
+
+.nav-logo {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+.streak-reset {
+    margin-top: 30px;
+    padding: 20px;
+
+    background: #fff5f5;
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+.reset-streak-btn {
+    padding: 12px 20px;
+
+    background: #d32f2f;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.reset-streak-btn:hover {
+    background: #b71c1c;
+}
+
+

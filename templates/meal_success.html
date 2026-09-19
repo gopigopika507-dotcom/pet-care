@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Meal Logged - Pet Care</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="success-page">
+
+
+    <div class="success-card">
+
+
+        <div class="success-icon">
+            ✅
+        </div>
+
+
+        <h1>
+            Meal Logged!
+        </h1>
+
+
+        <p>
+            Today's meal has been successfully
+            recorded.
+        </p>
+
+
+        <div class="streak-result">
+
+            🔥
+
+            <strong>
+                {{ current_streak }}
+            </strong>
+
+            <span>
+                Day Streak
+            </span>
+
+        </div>
+
+
+        <p>
+            Keep logging every day to maintain
+            your streak! 🐾
+        </p>
+
+
+        <div class="success-buttons">
+
+
+            <a href="/streak">
+
+                <button class="primary-btn">
+
+                    🔥 View Streak
+
+                </button>
+
+            </a>
+
+
+            <a href="/dashboard">
+
+                <button class="secondary-btn">
+
+Home
+
+                </button>
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

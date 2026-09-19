@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Meal Reminders</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>🔔 Meal Reminders</h1>
+
+    <p>
+        Your pet's daily meal reminders
+    </p>
+
+
+    <div class="reminder-list">
+
+
+        <!-- BREAKFAST -->
+
+        <div class="reminder-card">
+
+            <div class="reminder-icon">
+                🥣
+            </div>
+
+            <div>
+
+                <h2>
+                    Breakfast
+                </h2>
+
+                <p>
+                    {{ reminders.breakfast.time }}
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- LUNCH -->
+
+        <div class="reminder-card">
+
+            <div class="reminder-icon">
+                🍚
+            </div>
+
+            <div>
+
+                <h2>
+                    Lunch
+                </h2>
+
+                <p>
+                    {{ reminders.lunch.time }}
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- DINNER -->
+
+        <div class="reminder-card">
+
+            <div class="reminder-icon">
+                🍲
+            </div>
+
+            <div>
+
+                <h2>
+                    Dinner
+                </h2>
+
+                <p>
+                    {{ reminders.dinner.time }}
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button
+        onclick="enableNotifications()"
+        class="notification-button"
+    >
+        🔔 Enable Notifications
+    </button>
+
+</div>
+
+
+<script>
+
+function enableNotifications() {
+
+    if (!("Notification" in window)) {
+
+        alert(
+            "This browser does not support notifications."
+        );
+
+        return;
+    }
+
+
+    Notification.requestPermission()
+        .then(function(permission) {
+
+            if (
+                permission ===
+                "granted"
+            ) {
+
+                new Notification(
+                    "🐕 Smart Dog Diet",
+                    {
+                        body:
+                        "Meal reminders are now enabled!"
+                    }
+                );
+
+            }
+
+        });
+
+}
+
+</script>
+
+</body>
+
+</html>

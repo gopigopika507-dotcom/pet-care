@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Progress - Pet Care</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="progress-page">
+
+
+    <!-- BACK BUTTON -->
+
+    <a href="/dashboard"
+       class="progress-back">
+
+Home
+
+    </a>
+
+
+    <!-- HEADER -->
+
+    <div class="progress-header">
+
+        <div class="progress-icon">
+            📊
+        </div>
+
+        <h1>
+            Pet Progress
+        </h1>
+
+        <p>
+            Track your pet's daily care
+        </p>
+
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <div class="progress-stats">
+
+
+        <!-- CURRENT STREAK -->
+
+        <div class="progress-card">
+
+            <div class="progress-card-icon">
+                🔥
+            </div>
+
+            <h3>
+                Current Streak
+            </h3>
+
+            <strong>
+                {{ current_streak }}
+            </strong>
+
+            <span>
+                Days
+            </span>
+
+        </div>
+
+
+        <!-- LONGEST STREAK -->
+
+        <div class="progress-card">
+
+            <div class="progress-card-icon">
+                🏆
+            </div>
+
+            <h3>
+                Longest Streak
+            </h3>
+
+            <strong>
+                {{ longest_streak }}
+            </strong>
+
+            <span>
+                Days
+            </span>
+
+        </div>
+
+
+        <!-- TOTAL MEALS -->
+
+        <div class="progress-card">
+
+            <div class="progress-card-icon">
+                🍽️
+            </div>
+
+            <h3>
+                Meals Logged
+            </h3>
+
+            <strong>
+                {{ total_meals }}
+            </strong>
+
+            <span>
+                Meals
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- MEAL HISTORY -->
+
+    <div class="history-section">
+
+        <h2>
+            📅 Meal History
+        </h2>
+
+
+        {% if meals %}
+
+
+            {% for meal in meals %}
+
+
+            <div class="history-card">
+
+
+                <!-- PHOTO -->
+
+                <div class="history-photo">
+
+                    {% if meal["photo"] %}
+
+                        <img
+    src="{{ url_for(
+    'uploaded_meal',
+    filename=meal['photo']
+    ) }}"
+    alt="Meal Photo">
+
+                    {% else %}
+
+                        <span>
+                            🍽️
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- DETAILS -->
+
+                <div class="history-details">
+
+                    <h3>
+                        Meal Logged
+                    </h3>
+
+                    <p>
+
+                        📅 {{ meal["meal_date"] }}
+
+                    </p>
+
+                    <span class="completed">
+
+                        ✓ Completed
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            {% endfor %}
+
+
+        {% else %}
+
+
+            <!-- NO HISTORY -->
+
+            <div class="empty-history">
+
+                <div>
+                    🍽️
+                </div>
+
+                <h3>
+                    No meals logged yet
+                </h3>
+
+                <p>
+                    Upload your pet's first meal
+                    photo to start tracking.
+                </p>
+
+
+                <a href="/meal-upload">
+
+                    <button class="primary-btn">
+
+                        📷 Upload Meal
+
+                    </button>
+
+                </a>
+
+            </div>
+
+
+        {% endif %}
+
+
+    </div>
+
+
+    <!-- BUTTONS -->
+
+    <div class="progress-buttons">
+
+
+        <a href="/streak">
+
+            <button class="secondary-btn">
+
+                🔥 View Streak
+
+            </button>
+
+        </a>
+
+
+        <a href="/meal-upload">
+
+            <button class="primary-btn">
+
+                📷 Log Meal
+
+            </button>
+
+        </a>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

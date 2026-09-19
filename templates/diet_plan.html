@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Diet Plan - Pet Care</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="diet-container">
+
+    <!-- HEADER -->
+    <div class="diet-header">
+
+        <a href="{{ url_for('dashboard') }}" class="back">
+Home
+        </a>
+
+        <div class="pet-icon">
+            🐾
+        </div>
+
+        <h1>
+            {{ pet["name"] }}'s Diet Plan
+        </h1>
+
+        <p>
+            Personalized care plan for your pet
+        </p>
+
+    </div>
+
+
+    <!-- PET INFORMATION -->
+    <div class="pet-summary">
+
+        <div>
+            <strong>🐶 Pet</strong>
+            <span>{{ pet["name"] }}</span>
+        </div>
+
+        <div>
+            <strong>🏷️ Breed</strong>
+            <span>{{ pet["breed"] }}</span>
+        </div>
+
+        <div>
+            <strong>⚖️ Weight</strong>
+            <span>{{ pet["weight"] }} kg</span>
+        </div>
+
+        <div>
+            <strong>🏃 Activity</strong>
+            <span>{{ pet["activity"] }}</span>
+        </div>
+
+    </div>
+
+
+    <!-- PRESCRIPTION -->
+    <div class="prescription-note">
+
+        📋
+
+        <b>
+            Plan based on prescription
+        </b>
+
+        {% if prescription %}
+
+            <p>
+                Prescription uploaded successfully.
+            </p>
+
+        {% else %}
+
+            <p>
+                No prescription uploaded yet.
+            </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- FOOD SUGGESTIONS -->
+    <div class="card">
+
+        <h2>🍽️ Food Suggestions</h2>
+
+        {% if suggestions %}
+
+            {% for food in suggestions %}
+
+                <div class="food-item">
+                    🐾 {{ food }}
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>
+                Upload a prescription to get food suggestions.
+            </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- TODAY'S PLAN -->
+    <h2 class="section-title">
+        🍽️ Today's Plan
+    </h2>
+
+
+    <div class="meal-container">
+
+
+        <!-- BREAKFAST -->
+        <div class="meal-card">
+
+            <div class="meal-icon">
+                🌅
+            </div>
+
+            <div class="meal-info">
+
+                <span class="meal-time">
+                    Morning
+                </span>
+
+                <h3>
+                    Breakfast
+                </h3>
+
+                {% if suggestions %}
+                    <h4>
+                        {{ suggestions[0] }}
+                    </h4>
+                {% else %}
+                    <h4>
+                        Vet-approved breakfast
+                    </h4>
+                {% endif %}
+
+            </div>
+
+            <span class="meal-status">
+                ○
+            </span>
+
+        </div>
+
+
+        <!-- LUNCH -->
+        <div class="meal-card">
+
+            <div class="meal-icon">
+                ☀️
+            </div>
+
+            <div class="meal-info">
+
+                <span class="meal-time">
+                    Afternoon
+                </span>
+
+                <h3>
+                    Lunch
+                </h3>
+
+                {% if suggestions|length > 1 %}
+                    <h4>
+                        {{ suggestions[1] }}
+                    </h4>
+                {% elif suggestions %}
+                    <h4>
+                        {{ suggestions[0] }}
+                    </h4>
+                {% else %}
+                    <h4>
+                        Vet-approved lunch
+                    </h4>
+                {% endif %}
+
+            </div>
+
+            <span class="meal-status">
+                ○
+            </span>
+
+        </div>
+
+
+        <!-- DINNER -->
+        <div class="meal-card">
+
+            <div class="meal-icon">
+                🌙
+            </div>
+
+            <div class="meal-info">
+
+                <span class="meal-time">
+                    Evening
+                </span>
+
+                <h3>
+                    Dinner
+                </h3>
+
+                {% if suggestions|length > 2 %}
+                    <h4>
+                        {{ suggestions[2] }}
+                    </h4>
+                {% elif suggestions %}
+                    <h4>
+                        {{ suggestions[0] }}
+                    </h4>
+                {% else %}
+                    <h4>
+                        Vet-approved dinner
+                    </h4>
+                {% endif %}
+
+            </div>
+
+            <span class="meal-status">
+                ○
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- BUTTONS -->
+    <div class="diet-buttons">
+
+        <a href="{{ url_for('dashboard') }}">
+            <button class="secondary-btn">
+                ← Back to Dashboard
+            </button>
+        </a>
+
+        <a href="{{ url_for('log_meal') }}">
+            <button class="primary-btn">
+                📷 Log Today's Meal
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

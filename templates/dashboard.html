@@ -1,0 +1,598 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard - Pet Care</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <!-- LOGO -->
+
+    <div class="logo">
+        🐾 Pet Care
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    
+<nav>
+
+    <a href="{{ url_for('dashboard') }}">
+        🏠 Home
+    </a>
+
+    <a href="{{ url_for('pet_profile') }}">
+        🐾 My Pet
+    </a>
+
+    <a href="{{ url_for('diet_plan') }}">
+        🍲 Care Plan
+    </a>
+
+    <a href="{{ url_for('streak') }}">
+        🔥 Streak
+    </a>
+
+    <!-- MEAL NOTIFICATIONS -->
+
+    <a href="{{ url_for('meal_notification_settings') }}"
+       class="notification-button">
+
+        🔔 Meal Notifications
+
+    </a>
+
+</nav>
+
+
+
+        </a>
+
+    </nav>
+
+
+    <!-- LOGOUT -->
+
+    <a href="{{ url_for('logout') }}"
+       class="login-btn">
+
+        Logout
+
+    </a>
+
+</header>
+
+
+
+<!-- =========================================
+     DASHBOARD
+========================================= -->
+
+<section class="dashboard">
+
+
+    <h1>
+        Hello! 👋
+    </h1>
+
+
+    <p>
+        Let's keep your pet healthy and happy.
+    </p>
+
+
+
+    <div class="dashboard-grid">
+
+
+
+        <!-- ==================================
+             MY PET
+        ================================== -->
+
+        <div class="dashboard-card">
+
+            {% if pet %}
+
+                <h2>🐾 My Pet</h2>
+
+                <h3>
+                    {{ pet["name"] }}
+                </h3>
+
+                <p>
+                    <b>Type:</b>
+                    {{ pet["pet_type"] }}
+                </p>
+
+                <p>
+                    <b>Breed:</b>
+                    {{ pet["breed"] }}
+                </p>
+
+                <p>
+                    <b>Age:</b>
+                    {{ pet["age"] }} years
+                </p>
+
+                <p>
+                    <b>Weight:</b>
+                    {{ pet["weight"] }} kg
+                </p>
+
+                <p>
+                    <b>Activity:</b>
+                    {{ pet["activity"] }}
+                </p>
+
+                <p>
+                    <b>Food:</b>
+                    {{ pet["food_preference"] }}
+                </p>
+
+                <p>
+                    <b>Allergies:</b>
+                    {{ pet["allergies"] }}
+                </p>
+
+                <p>
+                    <b>Veterinarian:</b>
+                    {{ pet["veterinarian"] }}
+                </p>
+
+                <a href="{{ url_for('pet_profile') }}">
+
+                    <button class="secondary-btn">
+                        Edit Profile
+                    </button>
+
+                </a>
+
+            {% else %}
+
+                <h2>🐶 My Pet</h2>
+
+                <p>
+                    Add your pet details to create
+                    a personalized care plan.
+                </p>
+
+                <a href="{{ url_for('pet_profile') }}">
+
+                    <button class="primary-btn">
+                        Add Pet
+                    </button>
+
+                </a>
+
+            {% endif %}
+
+        </div>
+
+
+
+        <!-- ==================================
+             STREAK
+        ================================== -->
+
+        <div class="dashboard-card">
+
+            <h2>🔥 Streak</h2>
+
+            <strong class="big-number">
+
+                {{ streak|default(0) }}
+
+            </strong>
+
+            <p>
+                Day Streak
+            </p>
+
+            <a href="{{ url_for('streak') }}">
+
+                <button class="primary-btn">
+                    View Streak
+                </button>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- ==================================
+             TODAY'S MEALS
+        ================================== -->
+
+        <div class="dashboard-card">
+
+            <h2>🍲 Today's Meals</h2>
+
+            <p>
+                Track what your pet ate today.
+            </p>
+
+            <a href="{{ url_for('log_meal') }}">
+
+                <button class="primary-btn">
+                    Log Meal
+                </button>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- ==================================
+             PRESCRIPTION
+        ================================== -->
+
+        <div class="dashboard-card">
+
+            <h2>📄 Prescription</h2>
+
+            <p>
+                Upload your veterinarian's
+                prescription.
+            </p>
+
+            <a href="{{ url_for('prescription') }}">
+
+                <button class="primary-btn">
+                    Upload
+                </button>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- ==================================
+             MEAL STREAK
+        ================================== -->
+
+        <div class="dashboard-card">
+
+            <h2>🔥 Meal Streak</h2>
+
+            <p>
+                Keep tracking your pet's meals
+                every day.
+            </p>
+
+            <a href="{{ url_for('streak') }}">
+
+                <button class="primary-btn">
+                    View Streak
+                </button>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- ==================================
+             PET PROGRESS
+        ================================== -->
+
+        <div class="dashboard-card">
+
+            <h2>📊 Pet Progress</h2>
+
+            <p>
+                Check your pet's meal history
+                and progress.
+            </p>
+
+            <a href="{{ url_for('progress') }}">
+
+                <button class="primary-btn">
+                    View Progress
+                </button>
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     MEAL NOTIFICATION SYSTEM
+========================================= -->
+
+<script>
+
+
+let mealNotificationTimers = {};
+
+
+
+// ==========================================
+// REQUEST NOTIFICATION PERMISSION
+// ==========================================
+
+function requestMealNotificationPermission() {
+
+    if (!("Notification" in window)) {
+
+        console.log(
+            "This browser does not support notifications."
+        );
+
+        return;
+    }
+
+
+    if (Notification.permission === "default") {
+
+        Notification.requestPermission();
+
+    }
+
+}
+
+
+
+// ==========================================
+// GET CURRENT MEAL TIMES
+// ==========================================
+
+function getMealTimes() {
+
+    return {
+
+        breakfast:
+            "{{ session.get('breakfast_time', '08:00') }}",
+
+        lunch:
+            "{{ session.get('lunch_time', '13:00') }}",
+
+        dinner:
+            "{{ session.get('dinner_time', '20:00') }}"
+
+    };
+
+}
+
+
+
+// ==========================================
+// SHOW NOTIFICATION
+// ==========================================
+
+function showMealNotification(
+    mealType,
+    message
+) {
+
+    if (
+        !("Notification" in window)
+        ||
+        Notification.permission !== "granted"
+    ) {
+
+        return;
+    }
+
+
+    const notification =
+        new Notification(
+            "🐾 Smart Pet Diet Reminder",
+            {
+                body: message,
+
+                tag:
+                    "meal-" + mealType,
+
+                requireInteraction: true
+            }
+        );
+
+
+    notification.onclick = function() {
+
+        window.focus();
+
+        window.location.href =
+            "{{ url_for('log_meal') }}"
+            + "?meal_type="
+            + mealType;
+
+        notification.close();
+
+    };
+
+}
+
+
+
+// ==========================================
+// CHECK MEAL NOTIFICATIONS
+// ==========================================
+
+async function checkMealNotifications() {
+
+    try {
+
+        const response =
+            await fetch(
+                "{{ url_for('meal_notifications') }}"
+            );
+
+
+        if (!response.ok) {
+
+            return;
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if (!data.success) {
+
+            return;
+        }
+
+
+        const mealTimes =
+            getMealTimes();
+
+
+        const now =
+            new Date();
+
+
+        const currentHours =
+            String(
+                now.getHours()
+            ).padStart(2, "0");
+
+
+        const currentMinutes =
+            String(
+                now.getMinutes()
+            ).padStart(2, "0");
+
+
+        const currentTime =
+            currentHours
+            + ":"
+            + currentMinutes;
+
+
+        data.notifications.forEach(
+            function(notification) {
+
+
+                const mealType =
+                    notification.meal_type;
+
+
+                const notificationTime =
+                    mealTimes[mealType];
+
+
+                if (
+                    notificationTime
+                    ===
+                    currentTime
+                ) {
+
+
+                    const storageKey =
+                        "meal-notified-"
+                        + mealType
+                        + "-"
+                        + new Date()
+                            .toISOString()
+                            .split("T")[0];
+
+
+                    const alreadyNotified =
+                        localStorage.getItem(
+                            storageKey
+                        );
+
+
+                    if (!alreadyNotified) {
+
+
+                        showMealNotification(
+                            mealType,
+                            notification.message
+                        );
+
+
+                        localStorage.setItem(
+                            storageKey,
+                            "true"
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+
+    }
+
+    catch (error) {
+
+        console.log(
+            "Meal notification error:",
+            error
+        );
+
+    }
+
+}
+
+
+
+// ==========================================
+// START NOTIFICATION SYSTEM
+// ==========================================
+
+function startMealNotificationSystem() {
+
+    requestMealNotificationPermission();
+
+
+    checkMealNotifications();
+
+
+    setInterval(
+        checkMealNotifications,
+        60000
+    );
+
+}
+
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        startMealNotificationSystem();
+
+    }
+);
+
+
+</script>
+
+
+</body>
+
+</html>
+

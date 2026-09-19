@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Pet Care</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🐾 <span>Pet Care</span>
+    </div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="#features">Features</a>
+        <a href="#how">How It Works</a>
+        <a href="#about">About Us</a>
+    </nav>
+
+    <div>
+        <a href="/login" class="login-btn">Login</a>
+        <a href="/signup" class="start-btn">Get Started</a>
+    </div>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <div class="tag">
+            ✨ Smart Pet Care
+        </div>
+
+        <h1>
+            Your Pet's Health,
+            <span>Perfectly Planned</span>
+        </h1>
+
+        <p>
+            Upload your veterinarian's prescription,
+            get a personalized care plan, track meals
+            and maintain healthy streaks for your pet.
+        </p>
+
+        <div class="buttons">
+
+            <a href="/signup">
+                <button class="primary-btn">
+                    Get Started →
+                </button>
+            </a>
+
+            <a href="#how">
+                <button class="secondary-btn">
+                    ▶ How It Works
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+        <div class="pet-circle">
+            🐶
+        </div>
+
+        <h2>Happy Pet</h2>
+
+        <p>
+            Healthy meals<br>
+            Happy days 🐾
+        </p>
+
+        <div class="mini-card">
+            🔥 7 Day Streak
+        </div>
+
+        <div class="mini-card">
+            ✓ Today's Meal Logged
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="features" class="features">
+
+    <h2>Everything You Need for Your Pet</h2>
+
+    <div class="feature-container">
+
+        <div class="feature-card">
+            📄
+            <h3>Upload Prescription</h3>
+            <p>
+                Upload your veterinarian's prescription
+                and organize important instructions.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            🍲
+            <h3>Care Plan</h3>
+            <p>
+                Get a personalized meal and care plan
+                based on confirmed veterinary instructions.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            📸
+            <h3>Track Meals</h3>
+            <p>
+                Upload photos of your pet's meals
+                and keep a record.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            🔥
+            <h3>Build Streaks</h3>
+            <p>
+                Maintain daily meal logs and build
+                healthy streaks.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>

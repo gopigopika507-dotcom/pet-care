@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Review Prescription - Pet Care</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+<div class="page">
+
+    <div class="card">
+
+        <!-- PAGE TITLE -->
+
+        <h1>📋 Review Prescription</h1>
+
+
+        <!-- SUCCESS MESSAGE -->
+
+        <div class="success">
+            ✅ Prescription uploaded successfully
+        </div>
+
+
+        <!-- =====================================
+             PRESCRIPTION INFORMATION
+        ====================================== -->
+
+        <h2>📝 Prescription Information</h2>
+
+        <div class="information">
+
+            <p>
+                <b>Extracted Prescription:</b>
+            </p>
+
+            <div class="prescription-text">
+
+                {% if prescription_text %}
+
+                    {{ prescription_text }}
+
+                {% else %}
+
+                    No prescription text was extracted.
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             DISEASE INFORMATION
+        ====================================== -->
+
+        <h2>🩺 Disease Information</h2>
+
+        <div class="disease-card">
+
+            <div class="disease-name">
+
+                <span class="label">
+                    Detected Disease:
+                </span>
+
+                <span class="disease-value">
+
+                    {% if disease %}
+
+                        {{ disease }}
+
+                    {% else %}
+
+                        Not detected
+
+                    {% endif %}
+
+                </span>
+
+            </div>
+
+
+            {% if disease_info %}
+
+                <div class="disease-detail">
+
+                    <h3>📖 About the Disease</h3>
+
+                    <p>
+                        {{ disease_info.description }}
+                    </p>
+
+                </div>
+
+
+                <div class="disease-detail">
+
+                    <h3>🔍 Common Symptoms</h3>
+
+                    <p>
+                        {{ disease_info.symptoms }}
+                    </p>
+
+                </div>
+
+
+                <div class="disease-detail">
+
+                    <h3>🍽️ Dietary Care</h3>
+
+                    <p>
+                        {{ disease_info.diet }}
+                    </p>
+
+                </div>
+
+            {% else %}
+
+                <div class="no-disease">
+
+                    <p>
+                        No specific disease could be detected
+                        from the prescription.
+                    </p>
+
+                    <p>
+                        Please check the extracted prescription
+                        or consult your veterinarian.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- =====================================
+             FOOD SUGGESTIONS
+        ====================================== -->
+
+        <h2>🍖 Food Suggestions</h2>
+
+        <div class="food-list">
+
+            {% if food_suggestions %}
+
+                {% for food in food_suggestions %}
+
+                    <div class="food-item">
+                        🐾 {{ food }}
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <div class="food-item">
+                    No specific food suggestions available.
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- =====================================
+             WARNING
+        ====================================== -->
+
+        <div class="warning">
+
+            ⚠️ Please verify the extracted information
+            and food recommendations with your veterinarian.
+
+        </div>
+
+
+        <!-- =====================================
+             BUTTONS
+        ====================================== -->
+
+        <div class="buttons">
+
+            <a href="/prescription">
+
+                <button class="secondary-btn">
+                    Upload Again
+                </button>
+
+            </a>
+
+
+            <a href="/diet-plan">
+
+                <button class="primary-btn">
+                    View Diet Plan
+                </button>
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

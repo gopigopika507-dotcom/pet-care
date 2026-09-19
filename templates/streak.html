@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Streak - Pet Care</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="streak-page">
+
+
+    <!-- BACK BUTTON -->
+
+    <a
+        href="{{ url_for('dashboard') }}"
+        class="streak-back"
+    >
+        🏠 Home
+    </a>
+
+
+    <!-- HEADER -->
+
+    <div class="streak-header">
+
+        <div class="big-fire">
+            🔥
+        </div>
+
+        <h1>
+            Your Pet Care Streak
+        </h1>
+
+        <p>
+            Log breakfast, lunch and dinner every day
+            to keep your streak alive!
+        </p>
+
+    </div>
+
+
+    <!-- CURRENT STREAK -->
+
+    <div class="streak-main-card">
+
+        <div class="fire">
+            🔥
+        </div>
+
+        <div class="streak-number">
+            {{ current_streak }}
+        </div>
+
+        <div class="day-text">
+            DAY STREAK
+        </div>
+
+
+        {% if current_streak == 0 %}
+
+            <p>
+                Start your streak today! 🐾
+            </p>
+
+        {% elif current_streak == 1 %}
+
+            <p>
+                Great start! Keep going! 🐶
+            </p>
+
+        {% elif current_streak < 7 %}
+
+            <p>
+                Amazing! Keep your streak alive! 🔥
+            </p>
+
+        {% else %}
+
+            <p>
+                You're on fire! 🔥🐾
+            </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- TODAY'S MEAL STATUS -->
+
+    <div class="streak-stats">
+
+
+        <!-- BREAKFAST -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🥣
+            </div>
+
+            <h3>
+                Breakfast
+            </h3>
+
+            {% if breakfast_done %}
+
+                <strong style="color: green;">
+                    ✓ Completed
+                </strong>
+
+            {% else %}
+
+                <strong style="color: #e53935;">
+                    ✗ Not Uploaded
+                </strong>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- LUNCH -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🍚
+            </div>
+
+            <h3>
+                Lunch
+            </h3>
+
+            {% if lunch_done %}
+
+                <strong style="color: green;">
+                    ✓ Completed
+                </strong>
+
+            {% else %}
+
+                <strong style="color: #e53935;">
+                    ✗ Not Uploaded
+                </strong>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- DINNER -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🍲
+            </div>
+
+            <h3>
+                Dinner
+            </h3>
+
+            {% if dinner_done %}
+
+                <strong style="color: green;">
+                    ✓ Completed
+                </strong>
+
+            {% else %}
+
+                <strong style="color: #e53935;">
+                    ✗ Not Uploaded
+                </strong>
+
+            {% endif %}
+
+        </div>
+
+
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <div class="streak-stats">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🔥
+            </div>
+
+            <h3>
+                Current Streak
+            </h3>
+
+            <strong>
+                {{ current_streak }} Days
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🏆
+            </div>
+
+            <h3>
+                Longest Streak
+            </h3>
+
+            <strong>
+                {{ longest_streak }} Days
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🍽️
+            </div>
+
+            <h3>
+                Meals Logged
+            </h3>
+
+            <strong>
+                {{ meal_count }}
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- TODAY STATUS -->
+
+    <div class="streak-info">
+
+        {% if today_complete %}
+
+            <h2>
+                🎉 Today's Meals Completed!
+            </h2>
+
+            <p>
+                Breakfast, lunch and dinner are all logged.
+            </p>
+
+            <p>
+                Your streak is safe for today! 🔥
+            </p>
+
+        {% else %}
+
+            <h2>
+                ⚠️ Today's Streak Status
+            </h2>
+
+            <p>
+                You must upload all three meals
+                to complete today's streak.
+            </p>
+
+            <p>
+                Missing any complete day will break
+                the current streak.
+            </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- HOW STREAK WORKS -->
+
+    <div class="streak-info">
+
+        <h2>
+            💡 How Streak Works
+        </h2>
+
+        <p>
+            🥣 Breakfast + 🍚 Lunch + 🍲 Dinner
+            = 1 completed day.
+        </p>
+
+        <p>
+            Every completed day increases your streak by 1.
+        </p>
+
+        <p>
+            If you miss one complete day,
+            your current streak becomes 0.
+        </p>
+
+        <p>
+            Your longest streak is preserved.
+        </p>
+
+    </div>
+
+
+    <!-- LOG MEAL BUTTON -->
+
+    <a
+        href="{{ url_for('log_meal') }}"
+        class="log-button"
+    >
+        📷 Log Today's Meal
+    </a>
+
+
+</div>
+
+
+</body>
+
+</html>
+

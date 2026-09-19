@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Log Meal - Pet Care</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        .health-condition-box {
+            margin: 20px 0;
+            padding: 16px;
+            background: #fff8df;
+            border-left: 5px solid #e2b93b;
+            border-radius: 10px;
+        }
+
+        .health-condition-box .title {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .health-condition-box .condition {
+            font-size: 18px;
+            font-weight: bold;
+            color: #806000;
+        }
+
+        .meal-pet-info {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f7f9f8;
+            border-radius: 10px;
+        }
+
+        .meal-pet-info p {
+            margin: 6px 0;
+        }
+
+        .food-suggestion-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: #eef8f0;
+            border: 2px solid #198754;
+            border-radius: 12px;
+        }
+
+        .food-suggestion-box .food-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #198754;
+            margin-bottom: 12px;
+        }
+
+        .suggested-food {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .food-note {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        #file-name {
+            margin-top: 8px;
+            color: #198754;
+            font-size: 14px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="form-page">
+
+<div class="form-card">
+
+    <h1>📸 Log Meal</h1>
+
+    <p class="subtitle">
+        Upload your pet's meal photo.
+    </p>
+
+
+    <!-- PET -->
+
+    {% if pet %}
+
+    <div class="meal-pet-info">
+
+        <p>
+            🐾 <b>Pet:</b>
+            {{ pet["name"] }}
+        </p>
+
+        <p>
+            🐶 <b>Type:</b>
+            {{ pet["pet_type"] }}
+        </p>
+
+        <p>
+            🥩 <b>Food Preference:</b>
+
+            {% if pet["food_preference"] %}
+
+                {{ pet["food_preference"] }}
+
+            {% else %}
+
+                Not specified
+
+            {% endif %}
+
+        </p>
+
+        {% if pet["allergies"] %}
+
+        <p>
+            ⚠️ <b>Allergies:</b>
+            {{ pet["allergies"] }}
+        </p>
+
+        {% endif %}
+
+    </div>
+
+    {% endif %}
+
+
+    <!-- CONDITION -->
+
+    <div class="health-condition-box">
+
+        <div class="title">
+            🩺 Health Condition
+        </div>
+
+        <div class="condition">
+
+            {% if condition %}
+
+                {{ condition }}
+
+            {% else %}
+
+                No specific condition detected
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- MEAL FORM -->
+
+    <form
+        method="POST"
+        action="{{ url_for('log_meal') }}"
+        enctype="multipart/form-data"
+    >
+
+        <!-- MEAL TYPE -->
+
+        <div class="form-group">
+
+            <label for="meal_type">
+                Select Meal
+            </label>
+
+            <select
+                name="meal_type"
+                id="meal_type"
+                onchange="changeMeal(this.value)"
+            >
+
+                <option
+                    value="breakfast"
+                    {% if selected_meal == 'breakfast' %}
+                    selected
+                    {% endif %}
+                >
+                    🌅 Breakfast
+                </option>
+
+                <option
+                    value="lunch"
+                    {% if selected_meal == 'lunch' %}
+                    selected
+                    {% endif %}
+                >
+                    ☀️ Lunch
+                </option>
+
+                <option
+                    value="dinner"
+                    {% if selected_meal == 'dinner' %}
+                    selected
+                    {% endif %}
+                >
+                    🌙 Dinner
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- FOOD -->
+
+        <div class="food-suggestion-box">
+
+            <div class="food-title">
+
+                🥗 Suggested Food for
+
+                {% if selected_meal == "breakfast" %}
+
+                    Breakfast
+
+                {% elif selected_meal == "lunch" %}
+
+                    Lunch
+
+                {% else %}
+
+                    Dinner
+
+                {% endif %}
+
+            </div>
+
+
+            <div class="suggested-food">
+
+                {{ suggested_food }}
+
+            </div>
+
+
+            <div class="food-note">
+
+                ⚠️ Food recommendations are general
+                guidance based on the detected condition.
+                Follow your veterinarian's instructions
+                for your pet.
+
+            </div>
+
+        </div>
+
+
+        <!-- PHOTO -->
+
+        <div class="form-group">
+
+            <label for="photo">
+                📷 Upload Meal Photo
+            </label>
+
+            <input
+                type="file"
+                id="photo"
+                name="photo"
+                accept=".jpg,.jpeg,.png,.webp"
+                required
+            >
+
+            <p id="file-name"></p>
+
+        </div>
+
+
+        <!-- BUTTON -->
+
+        <div class="form-buttons">
+
+            <button
+                type="submit"
+                class="primary-btn"
+            >
+                📸 UPLOAD MEAL PHOTO
+            </button>
+
+        </div>
+
+    </form>
+
+
+    <!-- BACK -->
+
+    <a
+        href="{{ url_for('dashboard') }}"
+        class="back-link"
+    >
+Home
+    </a>
+
+</div>
+
+</div>
+
+
+<script>
+
+function changeMeal(meal) {
+
+    window.location.href =
+        "{{ url_for('log_meal') }}"
+        + "?meal_type="
+        + encodeURIComponent(meal);
+
+}
+
+
+const photoInput =
+    document.getElementById("photo");
+
+const fileName =
+    document.getElementById("file-name");
+
+
+photoInput.addEventListener(
+    "change",
+    function () {
+
+        if (
+            photoInput.files.length > 0
+        ) {
+
+            fileName.textContent =
+                "Selected file: "
+                + photoInput.files[0].name;
+
+        } else {
+
+            fileName.textContent = "";
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>

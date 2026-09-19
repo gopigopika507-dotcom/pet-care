@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Pet - Pet Care</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="form-page">
+
+    <div class="form-card">
+
+        <h1>🐾 My Pet</h1>
+
+        <p class="subtitle">
+            Add your pet details to create a personalized care plan.
+        </p>
+
+        <form method="POST"
+              action="{{ url_for('pet_profile') }}">
+
+            <div class="form-group">
+                <label>Pet Name</label>
+                <input type="text"
+                       name="name"
+                       value="{{ pet['name'] if pet else '' }}"
+                       placeholder="Enter pet name"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Pet Type</label>
+                <select name="pet_type" required>
+                    <option value="">Select pet type</option>
+
+                    <option value="Dog"
+                    {% if pet and pet['pet_type'] == 'Dog' %}selected{% endif %}>
+                        Dog
+                    </option>
+
+                    <option value="Cat"
+                    {% if pet and pet['pet_type'] == 'Cat' %}selected{% endif %}>
+                        Cat
+                    </option>
+
+                    <option value="Other"
+                    {% if pet and pet['pet_type'] == 'Other' %}selected{% endif %}>
+                        Other
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Breed</label>
+                <input type="text"
+                       name="breed"
+                       value="{{ pet['breed'] if pet else '' }}"
+                       placeholder="Enter breed"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number"
+                       name="age"
+                       value="{{ pet['age'] if pet else '' }}"
+                       placeholder="Age in years"
+                       min="0"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Weight</label>
+                <input type="number"
+                       name="weight"
+                       value="{{ pet['weight'] if pet else '' }}"
+                       placeholder="Weight in kg"
+                       step="0.1"
+                       min="0"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label>Activity Level</label>
+
+                <select name="activity" required>
+
+                    <option value="">Select activity level</option>
+
+                    <option value="Low"
+                    {% if pet and pet['activity'] == 'Low' %}selected{% endif %}>
+                        Low
+                    </option>
+
+                    <option value="Moderate"
+                    {% if pet and pet['activity'] == 'Moderate' %}selected{% endif %}>
+                        Moderate
+                    </option>
+
+                    <option value="High"
+                    {% if pet and pet['activity'] == 'High' %}selected{% endif %}>
+                        High
+                    </option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Food Preference</label>
+
+                <select name="food_preference" required>
+
+                    <option value="">Select food preference</option>
+
+                    <option value="Non-Vegetarian"
+                    {% if pet and pet['food_preference'] == 'Non-Vegetarian' %}selected{% endif %}>
+                        Non-Vegetarian
+                    </option>
+
+                    <option value="Vegetarian"
+                    {% if pet and pet['food_preference'] == 'Vegetarian' %}selected{% endif %}>
+                        Vegetarian
+                    </option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Allergies</label>
+
+                <textarea name="allergies"
+                          placeholder="Enter allergies, if any">{{ pet['allergies'] if pet else '' }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Veterinarian</label>
+
+                <input type="text"
+                       name="veterinarian"
+                       value="{{ pet['veterinarian'] if pet else '' }}"
+                       placeholder="Veterinarian name">
+            </div>
+
+            <div class="form-buttons">
+
+                <button type="submit"
+                        class="primary-btn">
+                    💾 SAVE PET PROFILE
+                </button>
+
+            </div>
+
+        </form>
+
+        <a href="{{ url_for('dashboard') }}"
+           class="back-link">
+Home
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

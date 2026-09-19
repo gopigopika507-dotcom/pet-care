@@ -1,4 +1,5 @@
 Flask
 Pillow
-Pytesseract
-gunicorn
+pytesseract
+Werkzeug
+opencv-python
